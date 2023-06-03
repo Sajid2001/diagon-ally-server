@@ -1,7 +1,8 @@
 const CategoryModel = require('../models/category');
 
 const findCategories = (req,res) => {
-    CategoryModel.find({}).sort({name:1})
+    const user_id = req.user._id
+    CategoryModel.find({user_id}).sort({name:1})
     .then(result =>{
         res.json(result);
     })
@@ -11,7 +12,9 @@ const findCategories = (req,res) => {
 }
 
 const addCategory = (req,res) => {
-    const category = new CategoryModel(req.body);
+    const {name} = req.body;
+    const user_id = req.user._id
+    const category = new CategoryModel({name, user_id})
     category.save()
         .then(result => {
             res.json(result)

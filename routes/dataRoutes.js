@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const dataController = require('../controllers/dataController')
+const requireAuth = require('../middleware/requireAuth')
+
+//require auth for all routes here
+router.use(requireAuth)
 
 router.get('/categories', dataController.findCategories);
 router.post('/categories', dataController.addCategory);

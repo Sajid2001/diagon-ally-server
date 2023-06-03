@@ -20,7 +20,11 @@ const CategorySchema = new mongoose.Schema({
             min: 6,
              max:255
         }
-    }]
+    }],
+    user_id:{
+        type:String,
+        required:true
+    },
     
 });
 

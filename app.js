@@ -5,6 +5,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const mapRoutes = require('./routes/mapRoutes')
 const dataRoutes = require('./routes/dataRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 
 dotenv.config();
@@ -27,5 +28,5 @@ app.use(cors());
 
 
 app.use('/map', mapRoutes)
-
 app.use('/data', dataRoutes)
+app.use('/user', userRoutes)
